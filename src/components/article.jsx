@@ -13,11 +13,6 @@ export default {
     components: {
         comment
     },
-    methods: {
-        loadcomment() {
-
-        }
-    },
     mounted() {
         fetchInitialData(this.$store)
     },
@@ -41,7 +36,7 @@ export default {
                         <div class="cont cont-1">
                             <div class="text">
                                 <h2><router-link to={'/article/' + this.article.data._id}>{ this.article.data.title }</router-link></h2>
-                                <div class="markdown-body">{this.article.data.content}</div>
+                                <div class="markdown-body" domProps-innerHTML={this.article.data.content}></div>
                             </div>
                         </div>
                         <div class="info info-1"></div>
