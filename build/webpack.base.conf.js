@@ -46,7 +46,7 @@ module.exports = {
             loader: 'json'
         }, {
             test: /\.css$/,
-            loader: 'style!css'
+            loader: 'style!css!postcss'
         },  {
             test: /\.less/,
             loader: 'style!css!less'

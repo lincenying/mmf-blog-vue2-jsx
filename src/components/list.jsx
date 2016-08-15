@@ -52,9 +52,9 @@ export default {
                 <li class="list-group-item">
                     <router-link to={'/article/' + item._id} target="_blank">{item.title}</router-link>
                     {
-                        item.is_delete === 0 ?
-                        <a on-click={this.mdel(item._id)} href="javascript:;" class="badge badge-danger">删除</a> :
-                        <a on-click={this.recover(item._id)} href="javascript:;" class="badge badge-info">恢复</a>
+                        item.is_delete === 0 || item.is_delete === "0" ?
+                        <a on-click={this.mdel.bind(this, item._id)} href="javascript:;" class="badge badge-danger">删除</a> :
+                        <a on-click={this.recover.bind(this, item._id)} href="javascript:;" class="badge badge-info">恢复</a>
                     }
                     <router-link to={'/edit/' + item._id + '/' + this.curPage} class="badge badge-success">编辑</router-link>
                 </li>

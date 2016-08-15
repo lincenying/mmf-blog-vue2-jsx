@@ -7,17 +7,22 @@ export default {
     data () {
         return {
             editors: null,
-            title: '',
-            category: '',
-            content: ''
+            form: {
+                title: '',
+                category: '',
+                content: ''
+            }
         }
     },
     methods: {
+        handleChange(type, e) {
+            this.form[type] = e.target.value
+        },
         onSubmit(e) {
-            if (this.title === '') {
+            if (this.form.title === '') {
                 this.$store.dispatch('showMsg', '请输入标题')
                 e.preventDefault()
-            } else if (this.category === '') {
+            } else if (this.form.category === '') {
                 this.$store.dispatch('showMsg', '请选择分类')
                 e.preventDefault()
             } else if ($(this.el).val() === '') {
@@ -66,10 +71,10 @@ export default {
                 <div class="box">
                     <ajax-form id="article-post" action="/api/" method="post" onFormComplete={this.onFormComplete}>
                         <section id="post-title">
-                            <input type="text" name="title" class="form-control" placeholder="请输入标题" />
+                            <input on-keyup={this.handleChange.bind(this, 'title')} type="text" name="title" class="form-control" placeholder="请输入标题" />
                         </section>
                         <section id="post-category">
-                            <select id="category" name="category" class="form-control">
+                            <select on-change={this.handleChange.bind(this, 'category')} id="category" name="category" class="form-control">
                                 <option value="">请选择分类</option>
                                 <option value="1">生活</option>
                                 <option value="2">工作</option>

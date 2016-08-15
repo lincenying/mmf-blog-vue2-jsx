@@ -14,6 +14,9 @@ export default {
         }
     },
     methods: {
+        handleChange(type, e) {
+            this.form[type] = e.target.value
+        },
         loadcomment() {
             this.$store.dispatch(`getComment`, {
                 page: this.comments.page + 1,
@@ -43,8 +46,8 @@ export default {
                 })
             }
         },
-        reply(item) {
-            this.form.content = '回复 @'+ item.username + ': '
+        reply(username) {
+            this.form.content = '回复 @'+ username + ': '
             document.querySelector("#content").focus()
         }
     },
@@ -74,7 +77,7 @@ export default {
                                         </div>
                                     </div>
                                     <div class="bcmtlsth">
-                                        <a class="s-fc2 itag" href="javascript:;" style="visibility: hidden;">删除</a><a on-click={this.reply(item)} class="s-fc2 itag" href="javascript:;">回复</a>
+                                        <a class="s-fc2 itag" href="javascript:;" style="visibility: hidden;">删除</a><a on-click={this.reply.bind(this, item.username)} class="s-fc2 itag" href="javascript:;">回复</a>
                                     </div>
                                 </div>
                             </div>
@@ -90,8 +93,8 @@ export default {
                     <div class="bcmt">
                         <div class="s-fc0 ztag ztag_tips">由于该用户的权限设置，您暂时无法进行评论...</div>
                         <div class="bcmtadd">
-                            <input type="text" class="form-control" placeholder="请输入昵称" />
-                            <textarea id="content" class="form-control" placeholder="请输入评论内容"></textarea>
+                            <input on-keyup={this.handleChange.bind(this, 'username')} type="text" class="form-control" placeholder="请输入昵称" />
+                            <textarea on-keyup={this.handleChange.bind(this, 'content')} id="content" class="form-control" placeholder="请输入评论内容"></textarea>
                             <div class="bcmtbtn">
                                 <span class="ztag ztag_tips">提示</span>
                                 <button on-click={this.postComment} class="s-bd1 s-fc1 s-bg1 ztag">发布</button>
