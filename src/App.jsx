@@ -73,7 +73,8 @@ export default {
                                     </li>
                                 </ul>
                             </div>
-                        </div> :
+                        </div>
+                        :
                         <div class="box menu">
                             <div class="m-nav">
                                 <ul class="menuOpen">
