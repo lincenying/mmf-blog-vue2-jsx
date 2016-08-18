@@ -28,10 +28,9 @@ export default {
         },
         search(e) {
             var qs = e.target.value
-            if (qs === "") {
-                return false
+            if (e.keyCode === 13 && qs !== '') {
+                this.$router.replace('/search/' + qs)
             }
-            this.$router.replace('/search/' + qs)
         }
     },
     watch: {
