@@ -23,7 +23,7 @@ module.exports = merge(baseWebpackConfig, {
             test: /\.css$/,
             loader: 'style!css!postcss'
         },  {
-            test: /\.less/,
+            test: /\.less$/,
             loader: 'style!css!less'
         }]
     },
