@@ -10,14 +10,29 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 config.build.productionSourceMap = false
 
-module.exports = merge(baseWebpackConfig, {
+var extractCSS = new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css'))
+
+var webpackConfig = merge(baseWebpackConfig, {
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
+    module: {
+        loaders: [{
+            test: /\.css$/,
+            loader: extractCSS.extract(['css', 'postcss'])
+        }, {
+            test: /\.less$/,
+            loader: extractCSS.extract(['css', 'less'])
+        }]
+    },
     plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: utils.assetsPath('js/[name].[chunkhash].js')
+        }),
         // http://vuejs.github.io/vue-loader/workflow/production.html
         new webpack.DefinePlugin({
             'process.env': {
@@ -31,7 +46,7 @@ module.exports = merge(baseWebpackConfig, {
         }),
         // new webpack.optimize.OccurenceOrderPlugin(),
         // extract css into its own file
-        new ExtractTextPlugin(utils.assetsPath('css/[name].[contenthash].css')),
+        extractCSS,
         // generate dist index.html with correct asset hash for caching.
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
@@ -59,3 +74,4 @@ module.exports = merge(baseWebpackConfig, {
         })
     ]
 })
+module.exports = webpackConfig
