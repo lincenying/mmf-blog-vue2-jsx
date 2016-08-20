@@ -93,8 +93,8 @@ export default {
                     <div class="bcmt">
                         <div class="s-fc0 ztag ztag_tips">由于该用户的权限设置，您暂时无法进行评论...</div>
                         <div class="bcmtadd">
-                            <input on-keyup={this.handleChange.bind(this, 'username')} type="text" class="form-control" placeholder="请输入昵称" />
-                            <textarea on-keyup={this.handleChange.bind(this, 'content')} id="content" class="form-control" placeholder="请输入评论内容"></textarea>
+                            <input on-change={this.handleChange.bind(this, 'username')} value={this.form.username} type="text" class="form-control" placeholder="请输入昵称" />
+                            <textarea on-change={this.handleChange.bind(this, 'content')} id="content" class="form-control" placeholder="请输入评论内容">{this.form.content}</textarea>
                             <div class="bcmtbtn">
                                 <span class="ztag ztag_tips">提示</span>
                                 <button on-click={this.postComment} class="s-bd1 s-fc1 s-bg1 ztag">发布</button>

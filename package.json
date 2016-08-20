@@ -6,8 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "server": "node server.js"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "core-js": "^2.4.0",
@@ -16,9 +15,9 @@
     "nprogress": "^0.2.0",
     "store2": "^2.3.2",
     "toastr": "^2.1.2",
-    "vue": "^2.0.0-rc.1",
-    "vue-router": "^2.0.0-rc.1",
-    "vuex": "^2.0.0-rc.4",
+    "vue": "^2.0.0-rc.2",
+    "vue-router": "^2.0.0-rc.3",
+    "vuex": "^2.0.0-rc.5",
     "vuex-router-sync": "^3.0.0"
   },
   "devDependencies": {
@@ -43,7 +42,7 @@
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "ora": "^0.2.3",
-    "postcss-loader": "^0.10.0",
+    "postcss-loader": "^0.10.1",
     "postcss-modules-values": "1.1.1",
     "serve-favicon": "^2.2.1",
     "shelljs": "^0.7.0",

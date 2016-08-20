@@ -26,6 +26,12 @@ export default {
         handleChange(type, e) {
             this.form[type] = e.target.value
         },
+        handleSubmit(e) {
+            if (this.form.username === '' || this.form.password === '') {
+                this.$store.dispatch('showMsg', '请输入用户名和密码')
+                e.preventDefault()
+            }
+        },
         onFormComplete(res) {
             if (res.code === 200) {
                 this.$store.dispatch('showMsg', {
@@ -55,7 +61,7 @@ export default {
                                 保持登录
                             </label>
                         </p>
-                        <p class="submit"><input type="submit" value="登录" disabled={this.form.usrname !== '' && this.form.password !== '' ? null: 'true'} /></p>
+                        <p class="submit"><input on-click={this.handleSubmit} type="submit" value="登录" /></p>
                     </ajax-form>
                 </div>
             </section>
