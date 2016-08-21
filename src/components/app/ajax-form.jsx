@@ -88,7 +88,7 @@ export default {
     render(h) { // eslint-disable-line
         return (
             <form action={this.action} method={this.method} enctype={this.enctype} on-submit={this.handleAjaxFormSubmit}>
-                { this.$slots.default }
+                {this.$slots.default}
             </form>
         )
     }

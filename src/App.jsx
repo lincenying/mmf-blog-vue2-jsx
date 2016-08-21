@@ -19,14 +19,14 @@ export default {
         About
     },
     methods: {
-        goBack() {
+        handleGoBack() {
             this.$router.go(-1)
         },
-        goTop(e) {
+        handleGoTop(e) {
             e.preventDefault()
             window.scrollTo(0, 0)
         },
-        search(e) {
+        handleSearch(e) {
             var qs = e.target.value
             if (e.keyCode === 13 && qs !== '') {
                 this.$router.replace('/search/' + qs)
@@ -50,11 +50,11 @@ export default {
         return (
             <div class="g-doc">
                 <div class="g-hd">
-                    <About></About>
-                    { this.visit ?
+                    <About />
+                    {this.visit ?
                         <div class="box menu">
                             <div class="m-sch">
-                                <input on-keyup={this.search} id="search_content" class="sch" type="text" name="q" placeholder="记得按回车哦" />
+                                <input on-keyup={this.handleSearch} id="search_content" class="sch" type="text" name="q" placeholder="记得按回车哦" />
                             </div>
                             <div class="m-nav">
                                 <ul class="menuOpen">
@@ -96,11 +96,11 @@ export default {
                 </transition>
                 <div class="g-ft">
                     <span class="copy"><span title="Copyright">©</span> <a href="/">M·M·F 小屋</a> 2016.06</span>
-                    <span class="beian"><i></i> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=000000000000">浙公网安备 000000000000号</a></span>
+                    <span class="beian"><i></i> <a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=000000000000">浙公网安备 000000000000号</a></span>
                 </div>
                 <div class="arrow">
-                    <a class="go-top" href="#" on-click={this.goTop}></a>
-                    <a class="go-back" href="#" on-click={this.goBack}></a>
+                    <a class="go-top" href="#" on-click={this.handleGoTop}></a>
+                    <a class="go-back" href="#" on-click={this.handleGoBack}></a>
                 </div>
             </div>
         )

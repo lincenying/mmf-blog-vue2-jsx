@@ -18,7 +18,7 @@ export default {
         handleChange(type, e) {
             this.form[type] = e.target.value
         },
-        onSubmit(e) {
+        handleSubmit(e) {
             if (this.form.title === '') {
                 this.$store.dispatch('showMsg', '请输入标题')
                 e.preventDefault()
@@ -30,7 +30,7 @@ export default {
                 e.preventDefault()
             }
         },
-        onFormComplete(res) {
+        handleComplete(res) {
             this.$store.dispatch('showMsg', {
                 content: res.message,
                 type: res.code === 200 ? "success" : 'error'
@@ -69,7 +69,7 @@ export default {
         return (
             <div class="g-mn">
                 <div class="box">
-                    <ajax-form id="article-post" action="/api/" method="post" onFormComplete={this.onFormComplete}>
+                    <ajax-form id="article-post" action="/api/" method="post" onFormComplete={this.handleComplete}>
                         <section id="post-title">
                             <input on-change={this.handleChange.bind(this, 'title')} type="text" name="title" class="form-control" placeholder="请输入标题" />
                         </section>
@@ -86,7 +86,7 @@ export default {
                         </section>
                         <section id="post-submit">
                             <input type="hidden" name="action" value="post" />
-                            <button on-click={this.onSubmit} class="btn btn-success">发布</button>
+                            <button on-click={this.handleSubmit} class="btn btn-success">发布</button>
                         </section>
                     </ajax-form>
                 </div>

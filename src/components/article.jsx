@@ -29,13 +29,13 @@ export default {
                         <a href="javascript:;" class="w-icon w-icon-1">&nbsp;</a>
                         <a href="javascript:;" class="w-icon2">&nbsp;</a>
                         <div class="info">
-                            <a href="javascript:;">{ this.article.data.creat_date }</a>
-                            <a href="javascript:;">浏览: { this.article.data.visit }</a>
-                            <a href="javascript:;" class="comnum">{ this.article.data.comment_count }</a>
+                            <a href="javascript:;">{this.article.data.creat_date}</a>
+                            <a href="javascript:;">浏览: {this.article.data.visit}</a>
+                            <a href="javascript:;" class="comnum">{this.article.data.comment_count}</a>
                         </div>
                         <div class="cont cont-1">
                             <div class="text">
-                                <h2><router-link to={'/article/' + this.article.data._id}>{ this.article.data.title }</router-link></h2>
+                                <h2><router-link to={'/article/' + this.article.data._id}>{this.article.data.title}</router-link></h2>
                                 <div class="markdown-body" domProps-innerHTML={this.article.data.content}></div>
                             </div>
                         </div>
@@ -46,12 +46,12 @@ export default {
                     <div class="w-icon w-icon-2"></div>
                     <div class="w-icon w-icon-3"></div>
                     {
-                        this.article.prev.prev_id ?
+                    this.article.prev.prev_id ?
                         <router-link to={'/article/' + this.article.prev.prev_id} id="__prev_permalink__" class="prev">上一篇</router-link> :
                         <span class="prev">上一篇</span>
                     }
                     {
-                        this.article.next.next_id ?
+                    this.article.next.next_id ?
                         <router-link to={'/article/' + this.article.next.next_id} id="__next_permalink__" class="next">下一篇</router-link>:
                         <span class="next">下一篇</span>
                     }

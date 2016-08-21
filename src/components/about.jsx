@@ -1,6 +1,6 @@
 export default {
     methods: {
-        slideToggle() {
+        handleSlideToggle() {
             $(".m-about").slideToggle("800")
         }
     },
@@ -8,8 +8,8 @@ export default {
         return (
             <div>
                 <div class="box m-tit">
-                    <h1><a on-click={this.slideToggle} href="javascript:;"></a></h1>
-                    <a on-click={this.slideToggle} href="javascript:;" class="w-icon">查看个人介绍</a>
+                    <h1><a on-click={this.handleSlideToggle} href="javascript:;"></a></h1>
+                    <a on-click={this.handleSlideToggle} href="javascript:;" class="w-icon">查看个人介绍</a>
                 </div>
                 <div class="box box-do m-about">
                     <div class="logo">
@@ -19,7 +19,7 @@ export default {
                     <p>年龄: 1987.09</p>
                     <p>职业: 前端开发</p>
                     <p>技能: HTML5 + CSS3 + jQuery + Gulp + WebPack + ES6 + Vue + NodeJS + PHP</p>
-                    <a on-click={this.slideToggle} href="javascript:;" class="w-icon">收起个人介绍</a>
+                    <a on-click={this.handleSlideToggle} href="javascript:;" class="w-icon">收起个人介绍</a>
                 </div>
             </div>
         )
