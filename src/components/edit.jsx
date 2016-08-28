@@ -88,7 +88,7 @@ export default {
                 <div class="box">
                     <ajax-form id="article-post" action="/api/?action=modify" method="post" onFormComplete={this.handleComplete}>
                         <section id="post-title">
-                            <input on-change={this.handleChange.bind(this, 'title')} value={this.form.title} type="text" name="title" class="form-control" placeholder="请输入标题" />
+                            <input on-input={this.handleChange.bind(this, 'title')} value={this.form.title} type="text" name="title" class="form-control" placeholder="请输入标题" />
                         </section>
                         <section id="post-category">
                             <select on-change={this.handleChange.bind(this, 'category')} domProps-value={this.form.category} id="category" name="category" class="form-control">
