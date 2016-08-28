@@ -28,22 +28,18 @@ module.exports = merge(baseWebpackConfig, {
         }]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.bundle.js'
-        }),
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            chunks: ['vendor', 'polyfill', 'app'],
+            chunks: ['polyfill', 'app'],
             filename: 'index.html',
             template: 'index.html',
             inject: true
         }),
         new HtmlWebpackPlugin({
-            chunks: ['vendor', 'login'],
+            chunks: ['login'],
             filename: 'login.html',
             template: 'login.html',
             inject: true

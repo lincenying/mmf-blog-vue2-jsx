@@ -10,10 +10,7 @@ module.exports = {
     entry: {
         polyfill: './src/polyfill',
         app: './src/main.js',
-        login: './src/login.js',
-        vendor: [
-            'vue', 'vue-router', 'vuex', 'vuex-router-sync'
-        ]
+        login: './src/login.js'
     },
     output: {
         path: config.build.assetsRoot,
@@ -65,6 +62,10 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
+        }),
+        new webpack.DllReferencePlugin({
+            context: path.resolve(__dirname, "../src"),
+            manifest: require("../static/vendor-manifest.json")
         })
     ]
 }

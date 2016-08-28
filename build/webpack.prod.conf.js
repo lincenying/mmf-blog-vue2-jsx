@@ -1,5 +1,5 @@
 /* global require, module, process */
-
+var path = require("path")
 var config = require('../config')
 var utils = require('./utils')
 var webpack = require('webpack')
@@ -29,10 +29,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         }]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: utils.assetsPath('js/[name].[chunkhash].js')
-        }),
         // http://vuejs.github.io/vue-loader/workflow/production.html
         new webpack.DefinePlugin({
             'process.env': {
@@ -51,7 +47,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            chunks: ['vendor', 'polyfill', 'app'],
+            chunks: ['polyfill', 'app'],
             filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index,
             template: 'index.html',
             inject: true,
@@ -62,7 +58,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             }
         }),
         new HtmlWebpackPlugin({
-            chunks: ['vendor', 'login'],
+            chunks: ['login'],
             filename: 'login.html',
             template: 'login.html',
             inject: true,
@@ -71,6 +67,10 @@ var webpackConfig = merge(baseWebpackConfig, {
                 collapseWhitespace: true,
                 removeAttributeQuotes: true
             }
+        }),
+        new webpack.DllReferencePlugin({
+            context: path.resolve(__dirname, "../src"),
+            manifest: require("../static/vendor-manifest.json")
         })
     ]
 })

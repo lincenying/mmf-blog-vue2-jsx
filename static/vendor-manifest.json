@@ -1,0 +1,16 @@
+{
+  "name": "vendor",
+  "content": {
+    "../node_modules/jquery/dist/jquery.js": 1,
+    "../node_modules/process/browser.js": 2,
+    "../node_modules/store2/dist/store2.js": 3,
+    "../node_modules/toastr/toastr.js": 4,
+    "../node_modules/vue-router/dist/vue-router.js": 5,
+    "../node_modules/vue/dist/vue.common.js": 6,
+    "../node_modules/vuex-router-sync/index.js": 7,
+    "../node_modules/vuex/dist/vuex.js": 8,
+    "../node_modules/webpack/buildin/amd-define.js": 9,
+    "../node_modules/webpack/buildin/global.js": 10,
+    "./vendors.js": 0
+  }
+}
