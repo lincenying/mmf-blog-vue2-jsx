@@ -8,7 +8,6 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
     entry: {
-        polyfill: './src/polyfill',
         app: './src/main.js',
         login: './src/login.js'
     },

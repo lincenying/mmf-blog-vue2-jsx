@@ -40,6 +40,10 @@ var webpackConfig = merge(baseWebpackConfig, {
                 warnings: false
             }
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "commons",
+            chunks: ["app", "login"]
+        }),
         // new webpack.optimize.OccurenceOrderPlugin(),
         // extract css into its own file
         extractCSS,
@@ -50,7 +54,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            chunks: ['polyfill', 'app'],
+            chunks: ['commons', 'app'],
             filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index,
             template: 'index.html',
             inject: true,
@@ -61,7 +65,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             }
         }),
         new HtmlWebpackPlugin({
-            chunks: ['login'],
+            chunks: ['commons', 'login'],
             filename: 'login.html',
             template: 'login.html',
             inject: true,
@@ -70,10 +74,6 @@ var webpackConfig = merge(baseWebpackConfig, {
                 collapseWhitespace: true,
                 removeRedundantAttributes: true
             }
-        }),
-        new webpack.DllReferencePlugin({
-            context: path.resolve(__dirname, "../src"),
-            manifest: require("../static/vendor-manifest.json")
         })
     ]
 })
