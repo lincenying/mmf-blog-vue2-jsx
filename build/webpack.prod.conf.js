@@ -43,6 +43,9 @@ var webpackConfig = merge(baseWebpackConfig, {
         // new webpack.optimize.OccurenceOrderPlugin(),
         // extract css into its own file
         extractCSS,
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }),
         // generate dist index.html with correct asset hash for caching.
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
@@ -54,7 +57,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
-                removeAttributeQuotes: true
+                removeRedundantAttributes: true
             }
         }),
         new HtmlWebpackPlugin({
@@ -65,7 +68,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
-                removeAttributeQuotes: true
+                removeRedundantAttributes: true
             }
         }),
         new webpack.DllReferencePlugin({
