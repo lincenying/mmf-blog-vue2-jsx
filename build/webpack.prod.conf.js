@@ -25,7 +25,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             loader: extractCSS.extract(['css', 'postcss'])
         }, {
             test: /\.less$/,
-            loader: extractCSS.extract(['css', 'less'])
+            loader: extractCSS.extract(['css', 'postcss', 'less'])
         }]
     },
     plugins: [
