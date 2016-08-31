@@ -22,10 +22,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: extractCSS.extract(['css', 'postcss'])
+            loader: extractCSS.extract(['css?-autoprefixer', 'postcss'])
         }, {
             test: /\.less$/,
-            loader: extractCSS.extract(['css', 'postcss', 'less'])
+            loader: extractCSS.extract(['css?-autoprefixer', 'postcss', 'less'])
         }]
     },
     plugins: [

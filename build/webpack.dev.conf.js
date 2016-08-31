@@ -21,10 +21,10 @@ module.exports = merge(baseWebpackConfig, {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: 'style!css!postcss'
+            loader: 'style!css?-autoprefixer!postcss'
         },  {
             test: /\.less$/,
-            loader: 'style!css!postcss!less'
+            loader: 'style!css?-autoprefixer!postcss!less'
         }]
     },
     plugins: [

@@ -3,6 +3,7 @@
 var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
+var browserslist = require('browserslist')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
@@ -58,15 +59,7 @@ module.exports = {
         }]
     },
     postcss: [
-        autoprefixer({ browsers: [
-            'ie >= 8',
-            'ie_mob >= 10',
-            'ff >= 26',
-            'chrome >= 30',
-            'safari >= 7',
-            'ios >= 7',
-            'android >= 2.3'
-        ]})
+        autoprefixer({ browsers: browserslist('last 2 version, > 0.1%')})
     ],
     plugins: [
         new webpack.ProvidePlugin({
