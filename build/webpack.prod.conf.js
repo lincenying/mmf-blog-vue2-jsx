@@ -40,10 +40,6 @@ var webpackConfig = merge(baseWebpackConfig, {
                 warnings: false
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "commons",
-            chunks: ["app", "login"]
-        }),
         // new webpack.optimize.OccurenceOrderPlugin(),
         // extract css into its own file
         extractCSS,
@@ -54,7 +50,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            chunks: ['commons', 'app'],
+            chunks: ['app'],
             filename: process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index,
             template: 'index.html',
             inject: true,
@@ -65,7 +61,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             }
         }),
         new HtmlWebpackPlugin({
-            chunks: ['commons', 'login'],
+            chunks: ['login'],
             filename: 'login.html',
             template: 'login.html',
             inject: true,
