@@ -2,8 +2,10 @@
 
 var webpack = require('webpack')
 var merge = require('webpack-merge')
-var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HappyPack = require('happypack')
+
+var baseWebpackConfig = require('./webpack.base.conf')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function(name) {
@@ -21,16 +23,20 @@ module.exports = merge(baseWebpackConfig, {
     module: {
         loaders: [{
             test: /\.css$/,
-            loader: 'style!css?-autoprefixer!postcss'
+            loader: 'style!css?-autoprefixer!postcss',
+            happy: { id: 'css' }
         },  {
             test: /\.less$/,
-            loader: 'style!css?-autoprefixer!postcss!less'
+            loader: 'style!css?-autoprefixer!postcss!less',
+            happy: { id: 'less' }
         }]
     },
     plugins: [
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new HappyPack({ id: 'css', threads: 4 }),
+        new HappyPack({ id: 'less', threads: 4 }),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
             chunks: ['app'],

@@ -4,6 +4,8 @@ var path = require('path')
 var webpack = require('webpack')
 var autoprefixer = require('autoprefixer')
 var browserslist = require('browserslist')
+var HappyPack = require('happypack')
+
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
@@ -38,7 +40,8 @@ module.exports = {
             test: /\.js|\.jsx$/,
             loader: 'babel',
             include: projectRoot,
-            exclude: /node_modules/
+            exclude: /node_modules/,
+            happy: { id: 'jsx' }
         }, {
             test: /\.json$/,
             loader: 'json'
@@ -62,6 +65,7 @@ module.exports = {
         autoprefixer({ browsers: browserslist('last 2 version, > 0.1%')})
     ],
     plugins: [
+        new HappyPack({ id: 'jsx', threads: 4 }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
