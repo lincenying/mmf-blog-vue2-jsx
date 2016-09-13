@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "dll": "node build/dll.js"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "core-js": "^2.4.0",
@@ -16,7 +15,7 @@
     "nprogress": "^0.2.0",
     "store2": "^2.3.2",
     "toastr": "^2.1.2",
-    "vue": "^2.0.0-rc.4",
+    "vue": "^2.0.0-rc.5",
     "vue-router": "^2.0.0-rc.4",
     "vuex": "^2.0.0-rc.5",
     "vuex-router-sync": "^3.0.0"

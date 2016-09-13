@@ -1,3 +1,7 @@
 {
-    "extends": "lcy-react"
+    "extends": "lcy-react",
+    "rules": {
+        "react/jsx-handler-names": 0,
+        "eact/self-closing-comp": 0
+    }
 }

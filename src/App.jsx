@@ -59,16 +59,16 @@ export default {
                             <div class="m-nav">
                                 <ul class="menuOpen">
                                     <li class="tag-all">
-                                        <router-link to="/" exact><i></i>All</router-link>
+                                        <router-link to="/" exact><i />All</router-link>
                                     </li>
                                     <li class="tag-life">
-                                        <router-link to="/category/1"><i></i>Life</router-link>
+                                        <router-link to="/category/1"><i />Life</router-link>
                                     </li>
                                     <li class="tag-study">
-                                        <router-link to="/category/2"><i></i>Study</router-link>
+                                        <router-link to="/category/2"><i />Study</router-link>
                                     </li>
                                     <li class="tag-other">
-                                        <router-link to="/category/3"><i></i>Other</router-link>
+                                        <router-link to="/category/3"><i />Other</router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -78,13 +78,13 @@ export default {
                             <div class="m-nav">
                                 <ul class="menuOpen">
                                     <li class="tag-all">
-                                        <router-link to="/" exact><i></i>All</router-link>
+                                        <router-link to="/" exact><i />All</router-link>
                                     </li>
                                     <li class="tag-life">
-                                        <router-link to="/list/1"><i></i>List</router-link>
+                                        <router-link to="/list/1"><i />List</router-link>
                                     </li>
                                     <li class="tag-study">
-                                        <router-link to="/post"><i></i>Post</router-link>
+                                        <router-link to="/post"><i />Post</router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -92,15 +92,15 @@ export default {
                     }
                 </div>
                 <transition name="fade" mode="out-in">
-                    <router-view class="router"></router-view>
+                    <router-view class="router" />
                 </transition>
                 <div class="g-ft">
                     <span class="copy"><span title="Copyright">©</span> <a href="/">M·M·F 小屋</a> 2016.06</span>
-                    <span class="beian"><i></i> <a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=000000000000">浙公网安备 000000000000号</a></span>
+                    <span class="beian"><i /> <a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=000000000000">浙公网安备 000000000000号</a></span>
                 </div>
                 <div class="arrow">
-                    <a class="go-top" href="#" on-click={this.handleGoTop}></a>
-                    <a class="go-back" href="#" on-click={this.handleGoBack}></a>
+                    <a class="go-top" href="#" on-click={this.handleGoTop} />
+                    <a class="go-back" href="#" on-click={this.handleGoBack} />
                 </div>
             </div>
         )
