@@ -56,8 +56,8 @@ export default {
                     {lists}
                 </div>
                 <div class="box m-page box-do">
-                    <div class="w-icon w-icon-2"></div>
-                    <div class="w-icon w-icon-3"></div>
+                    <div class="w-icon w-icon-2" />
+                    <div class="w-icon w-icon-3" />
                     {this.topics.hasNext ? <a on-click={this.loadMore.bind(this, this.topics.page + 1)} href="javascript:;">加载更多</a> : <span>好厉害, 竟然翻到最后一页了...</span>}
                 </div>
             </div>

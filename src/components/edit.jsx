@@ -99,7 +99,7 @@ export default {
                             </select>
                         </section>
                         <section id="post-content">
-                            <textarea id="editor" name="content" class="form-control" data-autosave="editor-content"></textarea>
+                            <textarea id="editor" name="content" class="form-control" data-autosave="editor-content" />
                         </section>
                         <section id="post-submit">
                             <input type="hidden" name="id" value={this.id} />

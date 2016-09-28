@@ -68,8 +68,8 @@ export default {
                     </ul>
                 </div>
                 <div class="box m-page box-do">
-                    <div class="w-icon w-icon-2"></div>
-                    <div class="w-icon w-icon-3"></div>
+                    <div class="w-icon w-icon-2" />
+                    <div class="w-icon w-icon-3" />
                     {
                     this.topics.hasPrev ?
                         <router-link to={'/list/' + this.prevPage} id="__prev_permalink__" class="prev">上一页</router-link> : ''

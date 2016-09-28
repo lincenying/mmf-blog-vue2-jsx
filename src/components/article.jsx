@@ -36,15 +36,15 @@ export default {
                         <div class="cont cont-1">
                             <div class="text">
                                 <h2><router-link to={'/article/' + this.article.data._id}>{this.article.data.title}</router-link></h2>
-                                <div class="markdown-body" domProps-innerHTML={this.article.data.content}></div>
+                                <div class="markdown-body" domProps-innerHTML={this.article.data.content} />
                             </div>
                         </div>
-                        <div class="info info-1"></div>
+                        <div class="info info-1" />
                     </div>
                 </div>
                 <div class="box m-page box-do">
-                    <div class="w-icon w-icon-2"></div>
-                    <div class="w-icon w-icon-3"></div>
+                    <div class="w-icon w-icon-2" />
+                    <div class="w-icon w-icon-3" />
                     {
                     this.article.prev.prev_id ?
                         <router-link to={'/article/' + this.article.prev.prev_id} id="__prev_permalink__" class="prev">上一篇</router-link> :
@@ -56,7 +56,7 @@ export default {
                         <span class="next">下一篇</span>
                     }
                 </div>
-                <comment></comment>
+                <comment />
             </div>
         )
     }

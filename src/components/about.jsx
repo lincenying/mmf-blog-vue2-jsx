@@ -8,7 +8,7 @@ export default {
         return (
             <div>
                 <div class="box m-tit">
-                    <h1><a on-click={this.handleSlideToggle} href="javascript:;"></a></h1>
+                    <h1><a on-click={this.handleSlideToggle} href="javascript:;" /></h1>
                     <a on-click={this.handleSlideToggle} href="javascript:;" class="w-icon">查看个人介绍</a>
                 </div>
                 <div class="box box-do m-about">

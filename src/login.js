@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Login from './LoginApp'
+import Login from './LoginApp.jsx'
 import store from './store'
 
 const app = new Vue({

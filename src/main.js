@@ -1,6 +1,6 @@
 /* global document */
 import Vue from 'vue'
-import App from './App'
+import App from './App.jsx'
 import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'

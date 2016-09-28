@@ -98,7 +98,7 @@ export default {
                             <div class="bcmtbtn">
                                 <span class="ztag ztag_tips">提示</span>
                                 <button on-click={this.handlePostComment} class="s-bd1 s-fc1 s-bg1 ztag">发布</button>
-                                <div class="txt s-fc0"></div>
+                                <div class="txt s-fc0" />
                             </div>
                         </div>
                         <div class="bcmtlst">
