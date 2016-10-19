@@ -3,6 +3,8 @@
 var path = require('path');
 var cooking = require('cooking');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer')
+var browserslist = require('browserslist')
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
@@ -23,10 +25,7 @@ var config = {
             '/api/**': {
                 target: 'http://localhost:3000/',
                 secure: false,
-                changeOrigin: true,
-                headers: {
-
-                }
+                changeOrigin: true
             }
         }
     },
@@ -34,11 +33,14 @@ var config = {
     // production
     clean: true,
     hash: true,
-    sourceMap: true,
+    sourceMap: false,
     publicPath: '/static/',
     assetsPath: 'images',
     urlLoaderLimit: 10000,
     extractCSS: 'css/[name].[contenthash:7].css',
+    postcss: [
+        autoprefixer({ browsers: browserslist('last 2 version, > 0.1%')})
+    ],
     extends: ['vue2', 'eslint', 'less', ]
 }
 if (process.env.NODE_ENV === 'production') {
