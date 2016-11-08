@@ -18,11 +18,7 @@ export default {
     render(h) { // eslint-disable-line
         const moreOrLess = this.ispc ?
             <div class="more-less">
-            {
-            !this.showMore ?
-                <a on-click={this.handleOpen} class="more" href="javascript:;">展开 ↓</a> :
-                <a on-click={this.handleOpen} class="less" href="javascript:;">收起 ↑</a>
-            }
+                {!this.showMore ?<a on-click={this.handleOpen} class="more" href="javascript:;">展开 ↓</a> : <a on-click={this.handleOpen} class="less" href="javascript:;">收起 ↑</a>}
             </div> : ''
         return (
             <div class="index m-post box article">

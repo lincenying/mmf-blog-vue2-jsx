@@ -15,12 +15,12 @@
     "nprogress": "^0.2.0",
     "store2": "^2.3.2",
     "toastr": "^2.1.2",
-    "vue": "^2.0.1",
-    "vue-router": "^2.0.0",
+    "vue": "^2.0.5",
+    "vue-router": "^2.0.1",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^3.0.1"
+    "copy-webpack-plugin": "^4.0.0"
   }
 }
