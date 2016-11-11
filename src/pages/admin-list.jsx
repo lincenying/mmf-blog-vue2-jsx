@@ -52,11 +52,9 @@ export default {
                 <li key={item._id} class="list-group-item">
                     <router-link to={'/article/' + item._id} target="_blank" rel="noopener noreferrer">{item.title}</router-link>
                     {
-                    item.is_delete === 0 || item.is_delete === "0" ?
-                        <a on-click={this.mdel.bind(this, item._id)} href="javascript:;" class="badge badge-danger">删除</a> :
-                        <a on-click={this.recover.bind(this, item._id)} href="javascript:;" class="badge badge-info">恢复</a>
+                    item.is_delete === 0 || item.is_delete === "0" ? <a on-click={this.mdel.bind(this, item._id)} href="javascript:;" class="badge badge-danger">删除</a> : <a on-click={this.recover.bind(this, item._id)} href="javascript:;" class="badge badge-info">恢复</a>
                     }
-                    <router-link to={'/edit/' + item._id + '/' + this.curPage} class="badge badge-success">编辑</router-link>
+                    <router-link to={'/admin/edit/' + item._id + '/' + this.curPage} class="badge badge-success">编辑</router-link>
                 </li>
             )
         })
@@ -72,11 +70,11 @@ export default {
                     <div class="w-icon w-icon-3" />
                     {
                     this.topics.hasPrev ?
-                        <router-link to={'/list/' + this.prevPage} id="__prev_permalink__" class="prev">上一页</router-link> : ''
+                        <router-link to={'/admin/list/' + this.prevPage} id="__prev_permalink__" class="prev">上一页</router-link> : ''
                     }
                     {
                     this.topics.hasNext ?
-                        <router-link to={'/list/' + this.nextPage} id="__next_permalink__" class="next">下一页</router-link> : ''
+                        <router-link to={'/admin/list/' + this.nextPage} id="__next_permalink__" class="next">下一页</router-link> : ''
                     }
                 </div>
             </div>

@@ -1,5 +1,5 @@
 /* global window, editormd, testEditor */
-import ajaxForm from './app/ajax-form'
+import ajaxForm from '../components/app/ajax-form'
 export default {
     components: {
         ajaxForm

@@ -1,5 +1,5 @@
 /* global window */
-import '../html/css/login.css'
+import './assets/css/login.css'
 import '../node_modules/toastr/build/toastr.css'
 import { mapGetters } from 'vuex'
 import ls from 'store2'
@@ -40,7 +40,7 @@ export default {
                 })
                 ls.set("token", res.data)
                 setTimeout(() => {
-                    window.location.href = "/post"
+                    window.location.href = "/admin/post"
                 }, 1000)
             } else {
                 this.$store.dispatch('showMsg', res.message)

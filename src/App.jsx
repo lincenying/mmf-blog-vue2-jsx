@@ -1,6 +1,6 @@
 import '../static/editor.md/css/editormd.css'
-import '../html/css/hljs/googlecode.css'
-import '../html/css/style.css'
+import './assets/css/hljs/googlecode.css'
+import './assets/css/style.css'
 import '../node_modules/toastr/build/toastr.css'
 import '../node_modules/nprogress/nprogress.css'
 import { mapGetters } from 'vuex'
@@ -47,49 +47,52 @@ export default {
         }
     },
     render(h) { // eslint-disable-line
+        let navigation =
+            <div class="box menu">
+                <div class="m-sch">
+                    <input on-keyup={this.handleSearch} id="search_content" class="sch" type="text" name="q" placeholder="记得按回车哦" />
+                </div>
+                <div class="m-nav">
+                    <ul class="menuOpen">
+                        <li class="tag-all">
+                            <router-link to="/" exact><i />All</router-link>
+                        </li>
+                        <li class="tag-life">
+                            <router-link to="/category/1"><i />Life</router-link>
+                        </li>
+                        <li class="tag-study">
+                            <router-link to="/category/2"><i />Study</router-link>
+                        </li>
+                        <li class="tag-other">
+                            <router-link to="/category/3"><i />Other</router-link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        if (!this.visit) {
+            navigation =
+                <div class="box menu">
+                    <div class="m-nav">
+                        <ul class="menuOpen">
+                            <li class="tag-all">
+                                <router-link to="/" exact><i />All</router-link>
+                            </li>
+                            <li class="tag-life">
+                                <router-link to="/admin/list/1"><i />List</router-link>
+                            </li>
+                            <li class="tag-study">
+                                <router-link to="/admin/post"><i />Post</router-link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        }
         return (
             <div class="g-doc">
                 <div class="g-hd">
                     <About />
-                    {this.visit ?
-                        <div class="box menu">
-                            <div class="m-sch">
-                                <input on-keyup={this.handleSearch} id="search_content" class="sch" type="text" name="q" placeholder="记得按回车哦" />
-                            </div>
-                            <div class="m-nav">
-                                <ul class="menuOpen">
-                                    <li class="tag-all">
-                                        <router-link to="/" exact><i />All</router-link>
-                                    </li>
-                                    <li class="tag-life">
-                                        <router-link to="/category/1"><i />Life</router-link>
-                                    </li>
-                                    <li class="tag-study">
-                                        <router-link to="/category/2"><i />Study</router-link>
-                                    </li>
-                                    <li class="tag-other">
-                                        <router-link to="/category/3"><i />Other</router-link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        :
-                        <div class="box menu">
-                            <div class="m-nav">
-                                <ul class="menuOpen">
-                                    <li class="tag-all">
-                                        <router-link to="/" exact><i />All</router-link>
-                                    </li>
-                                    <li class="tag-life">
-                                        <router-link to="/list/1"><i />List</router-link>
-                                    </li>
-                                    <li class="tag-study">
-                                        <router-link to="/post"><i />Post</router-link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    }
+                    { navigation }
                 </div>
                 <transition name="fade" mode="out-in">
                     <router-view class="router" />

@@ -1,5 +1,5 @@
 import { mapGetters } from 'vuex'
-import comment from './comment'
+import comment from '../components/comment'
 const fetchInitialData = async store => {
     await store.dispatch(`getArticle`)
     await store.dispatch(`getComment`, { page: 1, limit: 5})
@@ -36,7 +36,7 @@ export default {
                         <div class="cont cont-1">
                             <div class="text">
                                 <h2><router-link to={'/article/' + this.article.data._id}>{this.article.data.title}</router-link></h2>
-                                <div class="markdown-body" domProps-innerHTML={this.article.data.content} />
+                                <div class="markdown-body" domProps-innerHTML={this.article.data.html} />
                             </div>
                         </div>
                         <div class="info info-1" />
@@ -47,13 +47,11 @@ export default {
                     <div class="w-icon w-icon-3" />
                     {
                     this.article.prev.prev_id ?
-                        <router-link to={'/article/' + this.article.prev.prev_id} id="__prev_permalink__" class="prev">上一篇</router-link> :
-                        <span class="prev">上一篇</span>
+                        <router-link to={'/article/' + this.article.prev.prev_id} id="__prev_permalink__" class="prev">上一篇</router-link> : <span class="prev">上一篇</span>
                     }
                     {
                     this.article.next.next_id ?
-                        <router-link to={'/article/' + this.article.next.next_id} id="__next_permalink__" class="next">下一篇</router-link>:
-                        <span class="next">下一篇</span>
+                        <router-link to={'/article/' + this.article.next.next_id} id="__next_permalink__" class="next">下一篇</router-link> : <span class="next">下一篇</span>
                     }
                 </div>
                 <comment />
