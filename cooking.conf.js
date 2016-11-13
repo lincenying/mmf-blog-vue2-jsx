@@ -1,11 +1,9 @@
 /* eslint-disable */
 
-var path = require('path');
-var cooking = require('cooking');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer')
-var browserslist = require('browserslist')
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+var path = require('path')
+var cooking = require('cooking')
+var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 var config = {
     entry: {
@@ -15,7 +13,7 @@ var config = {
     },
     dist: './dist/static',
     externals: {
-        'jQuery': 'jquery'
+        'jquery': 'jQuery'
     },
     devServer: {
         port: 8080,
@@ -38,9 +36,6 @@ var config = {
     assetsPath: 'images',
     urlLoaderLimit: 10000,
     extractCSS: 'css/[name].[contenthash:7].css',
-    postcss: [
-        autoprefixer({ browsers: browserslist('last 2 version, > 0.1%')})
-    ],
     extends: ['vue2', 'eslint']
 }
 if (process.env.NODE_ENV === 'production') {
@@ -67,29 +62,27 @@ if (process.env.NODE_ENV === 'production') {
 
 cooking.set(config);
 
-cooking.add('resolve.extensions', ['', '.js', '.vue', '.jsx'])
+cooking.add('resolve.extensions', ['.js', '.vue', '.jsx'])
 cooking.add('resolve.alias', {
     'src': path.join(__dirname, 'src')
-});
+})
+cooking.add('plugin.ProvidePlugin', new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery'}))
 
 if (process.env.NODE_ENV === 'production') {
-    cooking.add('output.filename', 'js/[name].[chunkhash].js')
-    cooking.add('output.chunkFilename', 'js/[id].[chunkhash].js')
-    cooking.add('plugin.CommonsChunk', new webpack.optimize.CommonsChunkPlugin({
+    cooking.add('output.filename', 'js/[name].[chunkhash:7].js')
+    cooking.add('output.chunkFilename', 'js/[id].[chunkhash:7].js')
+    cooking.add('plugin.CommonsChunk1', new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         minChunks: function(module, count) {
-            return (module.resource && /\.js$/.test(module.resource) && module.resource.indexOf(path.join(__dirname, '../node_modules')) === 0)
+            return (module.resource && /\.js$/.test(module.resource) && module.resource.indexOf('node_modules') > 0)
         }
     }))
-    cooking.add('plugin.CommonsChunk', new webpack.optimize.CommonsChunkPlugin({name: 'manifest', chunks: ['vendor']}))
+    cooking.add('plugin.CommonsChunk2', new webpack.optimize.CommonsChunkPlugin({name: 'manifest', chunks: ['vendor']}))
     cooking.add('plugin.CopyWebpackPlugin', new CopyWebpackPlugin([{
         from: 'favicon.ico',
         to: path.join(__dirname, 'dist')
-    },{
-        from: {
-            glob:'static/editor.md/**/*',
-            dot: true
-        },
+    }, {
+        from: 'static/editor.md/**/*',
         to: path.join(__dirname, 'dist')
     }]))
 } else {
@@ -97,5 +90,4 @@ if (process.env.NODE_ENV === 'production') {
         names: ["vendor"]
     }))
 }
-
 module.exports = cooking.resolve()
