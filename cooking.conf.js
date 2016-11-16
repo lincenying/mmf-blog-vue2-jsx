@@ -60,7 +60,7 @@ if (process.env.NODE_ENV === 'production') {
     }]
 }
 
-cooking.set(config);
+cooking.set(config)
 
 cooking.add('resolve.extensions', ['.js', '.vue', '.jsx'])
 cooking.add('resolve.alias', {
