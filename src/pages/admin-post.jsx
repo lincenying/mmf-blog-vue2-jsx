@@ -1,4 +1,5 @@
 /* global window, editormd, testEditor */
+import config from '../config'
 import ajaxForm from '../components/app/ajax-form'
 export default {
     components: {
@@ -6,6 +7,7 @@ export default {
     },
     data () {
         return {
+            api: config.api + 'admin/article/post',
             editors: null,
             form: {
                 title: '',
@@ -69,7 +71,7 @@ export default {
         return (
             <div class="g-mn">
                 <div class="box">
-                    <ajax-form id="article-post" action="/api/" method="post" onFormComplete={this.handleComplete}>
+                    <ajax-form id="article-post" action={this.api} method="post" onFormComplete={this.handleComplete}>
                         <section id="post-title">
                             <input on-input={this.handleChange.bind(this, 'title')} type="text" name="title" class="form-control" placeholder="请输入标题" />
                         </section>

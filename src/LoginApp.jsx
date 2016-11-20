@@ -52,7 +52,7 @@ export default {
             <section class="container">
                 <div class="login">
                     <h1>后台管理</h1>
-                    <ajax-form id="shake-setting" action="/api/?action=login" method="post" onFormComplete={this.handleComplete}>
+                    <ajax-form id="shake-setting" action="/api/frontend/login" method="post" onFormComplete={this.handleComplete}>
                         <p><input on-input={this.handleChange.bind(this, 'username')} type="text" name="username" value="" placeholder="请输入用户名" /></p>
                         <p><input on-input={this.handleChange.bind(this, 'password')} type="password" name="password" value="" placeholder="请输入密码" /></p>
                         <p class="remember_me">

@@ -1,4 +1,5 @@
 /* global editormd */
+import config from '../config'
 import { mapGetters } from 'vuex'
 import ajaxForm from '../components/app/ajax-form'
 export default {
@@ -12,6 +13,7 @@ export default {
     },
     data () {
         return {
+            api: config.api + 'admin/article/modify',
             id: '',
             form: {
                 title: '',
@@ -86,7 +88,7 @@ export default {
         return (
             <div class="g-mn">
                 <div class="box">
-                    <ajax-form id="article-post" action="/api/?action=modify" method="post" onFormComplete={this.handleComplete}>
+                    <ajax-form id="article-post" action={this.api} method="post" onFormComplete={this.handleComplete}>
                         <section id="post-title">
                             <input on-input={this.handleChange.bind(this, 'title')} value={this.form.title} type="text" name="title" class="form-control" placeholder="请输入标题" />
                         </section>
