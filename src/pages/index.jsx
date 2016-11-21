@@ -1,4 +1,5 @@
 import { mapGetters } from 'vuex'
+import ls from 'store2'
 import indexPost from '../components/index-post'
 import { ua, ssp } from '../utils'
 const fetchInitialData = async (store, config = { page: 1}) => {
@@ -42,6 +43,15 @@ export default {
         '$route'() {
             fetchInitialData(this.$store, {page: 1})
         }
+    },
+    beforeRouteLeave (to, from, next) {
+        const scrollTop = document.body.scrollTop
+        const path = this.$route.path
+        if (scrollTop) ls.set(path, scrollTop)
+        else {
+            if (ls.get(path)) ls.remove(path)
+        }
+        next()
     },
     render(h) { // eslint-disable-line
         const lists = this.topics.list.map(item => {
