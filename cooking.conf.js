@@ -18,7 +18,6 @@ var config = {
     devServer: {
         port: 8080,
         publicPath: '/',
-        clean: false,
         proxy: {
             '/api/**': {
                 target: 'http://localhost:3000/',

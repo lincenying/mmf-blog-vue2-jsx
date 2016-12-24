@@ -92,7 +92,7 @@ export default {
             <div class="g-doc">
                 <div class="g-hd">
                     <About />
-                    { navigation }
+                    {navigation}
                 </div>
                 <transition name="fade" mode="out-in">
                     <router-view class="router" />

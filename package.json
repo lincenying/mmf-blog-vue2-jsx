@@ -14,14 +14,14 @@
     "nprogress": "^0.2.0",
     "store2": "^2.3.2",
     "toastr": "^2.1.2",
-    "vue": "^2.0.5",
-    "vue-router": "^2.0.1",
-    "vuex": "^2.0.0",
-    "vuex-router-sync": "^3.0.0"
+    "vue": "^2.1.6",
+    "vue-router": "^2.1.1",
+    "vuex": "^2.1.1",
+    "vuex-router-sync": "^4.0.2"
   },
   "devDependencies": {
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.1.2",
-    "copy-webpack-plugin": "^4.0.0"
+    "babel-plugin-transform-vue-jsx": "^3.3.0",
+    "copy-webpack-plugin": "^4.0.1"
   }
 }
